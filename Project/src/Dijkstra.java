@@ -77,8 +77,9 @@ public class Dijkstra {
 	     //Shortest path for all the vertex
 	     for (int count = 0; count < V-1; count++){
 
-	       //Toma el vertice con la distancia minima del cojunto de vertices aun no procesados
-	       //En la primera iteracion siempre se devuelve src
+	       //Takes the vertex with the shortest path which are not yet processed
+	    	
+	       //First iteration will give the source
 	       int u = minDistance(dist, verticeYaProcesado);
 	 
 	       // vertex will turn true because it has already been visited
@@ -87,15 +88,14 @@ public class Dijkstra {
 	       // Update dist value of the adjacent vertices of the picked vertex.
 	       for (int v = 0; v < V; v++)
 
-	         //Se actualiza la dist[v] solo si no esta en verticeYaProcesado, hay un
-	         //arco desde u a v y el peso total del camino desde src hasta v a traves de u es 
-	         // mas pequeno que el valor actual de dist[v]
+	         //fist[v] is updated if only if it is not in a processed vertex
+	    
 	         if (!verticeYaProcesado[v] && grafo[u][v] > 0 && dist[u] != Integer.MAX_VALUE 
 	                                       && dist[u]+grafo[u][v] < dist[v])
 	            dist[v] = dist[u] + grafo[u][v];
 	     }
 	 
-	     // se imprime el arreglo con las distancias
+	     // printing the array with the distance results
 	     printSolution(dist, V,ambulanceCoor,src);
 	}
 	
@@ -137,7 +137,6 @@ public class Dijkstra {
 	//Function for getting the information of the ambulance that is going to go to attend the accident
 	
 	public static void infoAttend() {
-		//cambiar el alor de ese
 		
 	//	distancias[ambulanceId]=-1;
 	    System.out.println( "------Ambulance attending the accident in location "+accident+" is ambulanceID: "+ambulanceId +" it will take "+distanceW+" seconds to arrive------ ");
